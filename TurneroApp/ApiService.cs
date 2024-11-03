@@ -9,7 +9,7 @@ namespace TurneroApp
 {
     public class ApiService
     {
-        private static readonly string BASE_URL = "http://localhost:5154/api/";
+        private static readonly string BASE_URL = "http://localhost:5103/api/";
         static HttpClient httpClient = new HttpClient() { Timeout = TimeSpan.FromSeconds(60) };
 
 

@@ -2,6 +2,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Threading.Tasks;
+using TurneroApp.MVVM.Views.Administrador;
+using TurneroApp.MVVM.ViewModels.Administrador;
 
 namespace TurneroApp.MVVM.ViewModels
 {
@@ -26,16 +28,25 @@ namespace TurneroApp.MVVM.ViewModels
                     {
                         var login = await apiClient.ValidarLogin(email, contraseña);
 
-                        if (login != null && login.usuario_id != 0)
+                        if (login != null && login.IdUsuario != 0)
                         {
-                            Transport.usuario_id = login.usuario_id;
-                            Transport.nombre = login.nombre;
-                            Transport.email = login.email;
+                            
+                            Transport.IdUsuario = login.IdUsuario;
+                            Transport.Nombre = login.Nombre;
+                            Transport.Email = login.Email;
+                            Transport.IdRol = login.IdRol;
 
-                            await Application.Current.MainPage.DisplayAlert("Atención", "Inicio de sesión exitoso", "Aceptar");
+                     
+                            if (login.IdRol == 3) //cliente
+                            {
+                                await Application.Current.MainPage.DisplayAlert("Atención", "cliente", "Aceptar");
 
-
-                            //await Application.Current.MainPage.Navigation.PushAsync(new HomePage(new HomeViewModel()));
+                            }
+                            else 
+                            {
+                                await Application.Current.MainPage.DisplayAlert("Atención", "admin", "Aceptar");
+                                await Application.Current.MainPage.Navigation.PushAsync(new HomePage(new HomeViewModel()));
+                            }
                         }
                         else
                         {

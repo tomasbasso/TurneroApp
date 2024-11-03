@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:TurneroApp.MVVM.ViewModels.Administrador"
+             x:Class="TurneroApp.MVVM.Views.Administrador.HomePage"
+             x:DataType="viewModels:HomeViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="Transparent"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#2B2B2B" Offset="1.0" />
+            <GradientStop Color="#4A4A4A" Offset=".01" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.Resources>
+        <Style x:Key="RoundButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="HeightRequest" Value="100"/>
+            <Setter Property="WidthRequest" Value="100"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Spacing="20">
+            <Image Source="marcoslogo.png"
+                   HeightRequest="200"
+                   WidthRequest="200"/>
+            <Label Text="Peluqueria Lo De Marcos"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+            <Label Text="{Binding Nombre, StringFormat='Bienvenido {0}'}"
+                   FontSize="18"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <Grid ColumnDefinitions="*,*" 
+                  RowDefinitions="Auto,Auto,Auto"
+                  Padding="20"
+                  RowSpacing="15"
+                  ColumnSpacing="15">
+
+                <Button Text="Horarios"
+                   
+                        Style="{StaticResource RoundButton}"
+                        Grid.Column="0" Grid.Row="0"/>
+
+                <Button Text="Pagos"
+                      
+                        Style="{StaticResource RoundButton}"
+                        Grid.Column="1" Grid.Row="0"/>
+
+                <Button Text="Roles"
+                     
+                        Style="{StaticResource RoundButton}"
+                        Grid.Column="0" Grid.Row="1"/>
+
+                <Button Text="Servicios"
+                 
+                        Style="{StaticResource RoundButton}"
+                        Grid.Column="1" Grid.Row="1"/>
+
+                <Button Text="Turnos"
+                
+                        Style="{StaticResource RoundButton}"
+                        Grid.Column="0" Grid.Row="2"/>
+
+                <Button Text="Usuarios"
+                 
+                        Style="{StaticResource RoundButton}"
+                        Grid.Column="1" Grid.Row="2"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

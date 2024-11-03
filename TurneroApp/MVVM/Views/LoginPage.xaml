@@ -10,16 +10,16 @@
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Color="#B12E2E" Offset="1.0" />
-            <GradientStop Color="#CEC8C8" Offset="0.1" />
+            <GradientStop Color="#2B2B2B" Offset="1.0" />
+            <GradientStop Color="#4A4A4A" Offset=".01" />
         </LinearGradientBrush>
     </ContentPage.Background>
 
     <VerticalStackLayout Padding="30" Spacing="20">
 
-        <Image Source="logo.png"
+        <Image Source="marcoslogo.png"
                Aspect="AspectFit"
-               HeightRequest="150"
+               HeightRequest="250"
                HorizontalOptions="Center"
                VerticalOptions="Start"
                Margin="0,40,0,20"/>
@@ -48,8 +48,8 @@
 
 
         <Button Text="Iniciar Sesión"
-                BackgroundColor="#0D3863"
-                TextColor="White"
+                BackgroundColor="White"
+                TextColor="black"
                 FontSize="16"
                 HeightRequest="50"
                 CornerRadius="10"

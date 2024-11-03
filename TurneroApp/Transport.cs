@@ -11,5 +11,6 @@ namespace TurneroApp
         public static int IdUsuario { get; set; }
         public static string Nombre { get; set; } = string.Empty;
         public static string Email { get; set; } = string.Empty;
+        public static int IdRol { get; set; } 
     }
 }
