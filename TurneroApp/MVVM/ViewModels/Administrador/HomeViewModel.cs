@@ -1,10 +1,10 @@
 ﻿using TurneroApp.MVVM.Models;
-using TurneroApp.MVVM.Views;
+using TurneroApp.MVVM.Views.Administrador;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Controls;
 using System.Threading.Tasks;
-using TurneroApp.MVVM.Views.Administrador;
+
 
 namespace TurneroApp.MVVM.ViewModels.Administrador
 {
@@ -17,13 +17,13 @@ namespace TurneroApp.MVVM.ViewModels.Administrador
         [RelayCommand]
         public async Task GoToHomePage()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new HomePage(this));  // Navega a HomePage
+           // await Application.Current.MainPage.Navigation.PushAsync(new HomePage(this));  // Navega a HomePage
         }
 
         [RelayCommand]
         public async Task GoToUsuariosPage()
         {
-            await Application.Current.MainPage.DisplayAlert("Atención", "usuarios", "Aceptar");  // Navega a UsuariosPage
+            await Application.Current.MainPage.Navigation.PushAsync(new UsuariosPage(new UsuariosViewModel(new ApiService())));  // Navega a UsuariosPage
         }
 
         [RelayCommand]

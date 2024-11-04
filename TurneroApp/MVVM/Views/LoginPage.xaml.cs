@@ -1,4 +1,3 @@
-
 using TurneroApp.MVVM.ViewModels;
 
 namespace TurneroApp.MVVM.Views

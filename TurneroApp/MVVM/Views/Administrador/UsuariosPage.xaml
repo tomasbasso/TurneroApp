@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurneroApp.MVVM.Views.Administrador.UsuariosPage"             
+             xmlns:viewModels="clr-namespace:TurneroApp.MVVM.ViewModels.Administrador"             
+             BackgroundColor="Transparent"
+             Title="Lista de Usuarios"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#2B2B2B" Offset="1.0" />
+            <GradientStop Color="#4A4A4A" Offset=".01" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+
+            <Label Text="Lista de Usuarios"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start" />
+
+            <Button Text="Cargar Usuarios"
+                    Command="{Binding CargarUsuariosCommand}"
+                    BackgroundColor="#B12E2E"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    Margin="5"
+                    Padding="10"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start" />
+
+            <Button Text="Agregar Usuario"
+                    Command="{Binding GoToUsuariosAgregarCommand}"
+                    BackgroundColor="#2EB1B1"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    Margin="5"
+                    Padding="10"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start" />
+
+            <ListView ItemsSource="{Binding Usuarios}"
+                      SelectionMode="Single"
+                      SelectedItem="{Binding UsuarioSeleccionado}"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="10,5"
+                                   Padding="10"
+                                   CornerRadius="20"
+                                   HasShadow="True"
+                                   BorderColor="LightGray"
+                                   BackgroundColor="#FFECECEC">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+
+                                        <ColumnDefinition Width="*"/>
+
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="perfil.png" 
+                                           HeightRequest="50" 
+                                           WidthRequest="50" 
+                                           Aspect="AspectFill" 
+                                           HorizontalOptions="Start" 
+                                           VerticalOptions="Center">
+                                        <Image.Clip>
+                                            <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25"/>
+                                        </Image.Clip>
+                                    </Image>
+
+                                    <StackLayout Grid.Column="1" Padding="10,0" VerticalOptions="Center">
+                                        <Label Text="{Binding nombre}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="18"
+                                               TextColor="Black"/>
+                                        
+                                    </StackLayout>
+
+
+
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

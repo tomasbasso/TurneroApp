@@ -57,5 +57,55 @@ namespace TurneroApp
                 throw new Exception(ex.Message);
             }
         }
+        public async Task<List<Usuario>> ObtenerUsuario()
+        {
+            string FINAL_URL = BASE_URL + "Usuario/ObtenerUsuarios";
+
+            try
+            {
+                var response = await httpClient.GetAsync(FINAL_URL);
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonData = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Response JSON: {jsonData}"); // Para depurar la respuesta
+
+                    // Modificado para manejar un solo objeto
+                    if (jsonData.StartsWith("{")) // Verifica si es un objeto
+                    {
+                        var usuario = JsonSerializer.Deserialize<Usuario>(jsonData,
+                            new JsonSerializerOptions
+                            {
+                                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                                WriteIndented = true
+                            });
+
+                        return new List<Usuario> { usuario }; // Crea una lista con el único usuario
+                    }
+                    else if (jsonData.StartsWith("[")) // Verifica si es un array
+                    {
+                        var responseObject = JsonSerializer.Deserialize<List<Usuario>>(jsonData,
+                            new JsonSerializerOptions
+                            {
+                                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                                WriteIndented = true
+                            });
+                        return responseObject!;
+                    }
+                    else
+                    {
+                        throw new Exception("Resource Not Found");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Request failed with status code " + response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

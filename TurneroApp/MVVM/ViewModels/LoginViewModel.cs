@@ -1,9 +1,9 @@
-﻿using TurneroApp.MVVM.ViewModels;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Threading.Tasks;
-using TurneroApp.MVVM.Views.Administrador;
+using TurneroApp.MVVM.Views;
+using TurneroApp.MVVM.ViewModels;
 using TurneroApp.MVVM.ViewModels.Administrador;
+using TurneroApp.MVVM.Views.Administrador;
 
 namespace TurneroApp.MVVM.ViewModels
 {
@@ -50,17 +50,18 @@ namespace TurneroApp.MVVM.ViewModels
                         }
                         else
                         {
-                            Message = "Credenciales incorrectas. Intente nuevamente.";
+                            await Application.Current.MainPage.DisplayAlert("Atención", "Credenciales Incorrectas", "Aceptar");
                         }
                     }
                     catch (Exception ex)
                     {
-                        Message = $"Error: {ex.Message}";
+                        await Application.Current.MainPage.DisplayAlert("Atención", "Error", "Aceptar");
                     }
                 }
                 else
                 {
-                    Message = "Las credenciales son obligatorias. Verifique!";
+                    await Application.Current.MainPage.DisplayAlert("Atención", "Las credenciales son obligatorias. Verifique!", "Aceptar");
+                  
                 }
 
                 IsBusy = false;

@@ -77,7 +77,7 @@
                         Grid.Column="0" Grid.Row="2"/>
 
                 <Button Text="Usuarios"
-                 
+                        Command="{Binding GoToUsuariosPageCommand}"
                         Style="{StaticResource RoundButton}"
                         Grid.Column="1" Grid.Row="2"/>
             </Grid>

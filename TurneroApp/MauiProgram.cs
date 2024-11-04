@@ -1,6 +1,7 @@
 ﻿using TurneroApp.MVVM.ViewModels;
 using TurneroApp.MVVM.Views;
 using Microsoft.Extensions.Logging;
+using TurneroApp.MVVM.ViewModels.Administrador;
 
 namespace TurneroApp
 {
@@ -21,7 +22,7 @@ namespace TurneroApp
 
             // Registro de servicios
             builder.Services.AddSingleton<ApiService>();
-            //builder.Services.AddTransient<UsuariosViewModel>();
+            builder.Services.AddTransient<UsuariosViewModel>();
             //builder.Services.AddTransient<ProductoListaViewModel>();
             //IServiceCollection serviceCollection = builder.Services.AddTransient<UsuarioAgregarViewModel>();
 

@@ -1,10 +1,4 @@
-﻿using TurneroApp.MVVM.Models;
-using TurneroApp.MVVM.ViewModels;
-using TurneroApp.MVVM.Views;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace TurneroApp.MVVM.ViewModels;
 
