@@ -67,7 +67,7 @@
                         Grid.Column="0" Grid.Row="1"/>
 
                 <Button Text="Servicios"
-                 
+                   Command="{Binding GoToServiciosPageCommand}"
                         Style="{StaticResource RoundButton}"
                         Grid.Column="1" Grid.Row="1"/>
 

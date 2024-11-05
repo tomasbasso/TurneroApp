@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TurneroApp.MVVM.Views.Administrador.UsuariosPage"             
+             x:Class="TurneroApp.MVVM.Views.Administrador.ServiciosPage"             
              xmlns:viewModels="clr-namespace:TurneroApp.MVVM.ViewModels.Administrador"             
              BackgroundColor="Transparent"
-             Title="Lista de Usuarios"
+             Title="Lista de Servicios"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Background>
@@ -19,13 +19,13 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
 
-            <Label Text="Lista de Usuarios"
+            <Label Text="Lista de Servicios"
                    FontSize="24"
                    HorizontalOptions="Center"
                    VerticalOptions="Start" />
 
-            <Button Text="Cargar Usuarios"
-                    Command="{Binding CargarUsuariosCommand}"
+            <Button Text="Cargar servicios"
+                    Command="{Binding CargarServiciosCommand}"
                     BackgroundColor="#B12E2E"
                     TextColor="White"
                     FontAttributes="Bold"
@@ -35,8 +35,8 @@
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Start" />
 
-            <Button Text="Agregar Usuario"
-                    Command="{Binding GoToUsuariosAgregarCommand}"
+            <Button Text="Agregar nuevo servicio"
+                    Command="{Binding GoToServiciosAgregarCommand}"
                     BackgroundColor="#2EB1B1"
                     TextColor="White"
                     FontAttributes="Bold"
@@ -46,9 +46,9 @@
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Start" />
 
-            <ListView ItemsSource="{Binding Usuarios}"
+            <ListView ItemsSource="{Binding Servicios}"
                       SelectionMode="Single"
-                      SelectedItem="{Binding UsuarioSeleccionado}"
+                      SelectedItem="{Binding ServicioSeleccionado}"
                       HasUnevenRows="True"
                       SeparatorVisibility="None"
                       VerticalOptions="FillAndExpand">
@@ -70,7 +70,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Image Source="usuarios.png" 
+                                    <Image Source="marcoslogo.png" 
                                            HeightRequest="50" 
                                            WidthRequest="50" 
                                            Aspect="AspectFill" 
@@ -87,12 +87,12 @@
                                            FontAttributes="Bold" 
                                            FontSize="18"
                                            TextColor="Black"/>
-                                            <Label Text="{Binding Email}" 
+                                            <Label Text="{Binding Descripcion}" 
                                            FontSize="14" 
                                            TextColor="Gray"/>
-                                            <Label Text="{Binding Telefono}" 
-                                           FontSize="14" 
-                                           TextColor="Gray"/>
+                                            <Label Text="{Binding Precio, StringFormat='Precio: {0:C}'}" 
+                                               FontSize="14" 
+                                               TextColor="Gray"/>
                                         </StackLayout>
 
                                     </StackLayout>

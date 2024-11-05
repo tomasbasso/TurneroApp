@@ -1,12 +1,12 @@
 using TurneroApp.MVVM.ViewModels.Administrador;
 
 
-namespace TurneroApp.MVVM.Views.Administrador 
+namespace TurneroApp.MVVM.Views.Administrador
 {
 
-    public partial class UsuariosPage : ContentPage
+    public partial class ServiciosPage : ContentPage
     {
-        public UsuariosPage(UsuariosViewModel viewModel)
+        public ServiciosPage(ServiciosViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;

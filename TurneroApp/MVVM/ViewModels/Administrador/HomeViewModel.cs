@@ -23,14 +23,14 @@ namespace TurneroApp.MVVM.ViewModels.Administrador
         [RelayCommand]
         public async Task GoToUsuariosPage()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new UsuariosPage(new UsuariosViewModel(new ApiService())));  // Navega a UsuariosPage
+            await Application.Current.MainPage.Navigation.PushAsync(new UsuariosPage(new UsuariosViewModel()));  // Navega a UsuariosPage
         }
 
         [RelayCommand]
-        public async Task GoToCarritoPage()
+        public async Task GoToServiciosPage()
         {
 
-            await Application.Current.MainPage.DisplayAlert("Atención", "carrito", "Aceptar");
+            await Application.Current.MainPage.Navigation.PushAsync(new ServiciosPage(new ServiciosViewModel()));  // Navega a UsuariosPage
         }
 
         [RelayCommand]
